@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Наполнение сенсорной комнаты Sensory Rooms: зоны, оборудование и как пространство помогает детям саморегулироваться.">
+  <link rel="icon" href="/rooms/img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/rooms/style.css">
+  <link rel="stylesheet" href="/rooms/kit-theme.css">
+  <link rel="stylesheet" href="/unified.css">
+  <link rel="stylesheet" href="/brand-unify.css">
+  <link rel="stylesheet" href="/site-nav.css">
+  <title>Наполнение комнаты — Sensory Rooms</title>
+  <style>
+    /* Rooms napolnenie — dark editorial equipment showcase */
+    .rn {
+      --rn-bg: #07060d;
+      --rn-card: rgba(255,255,255,0.04);
+      --rn-line: rgba(255,255,255,0.1);
+      --rn-ink: #f4f2ff;
+      --rn-mut: rgba(244,242,255,0.62);
+      --rn-pink: #ff8fc8;
+      --rn-blue: #93c5fd;
+      --rn-vio: #c4b5fd;
+      --rn-h: 'Unbounded', system-ui, sans-serif;
+      --rn-b: 'Manrope', system-ui, sans-serif;
+      background: var(--rn-bg);
+      color: var(--rn-ink);
+      font-family: var(--rn-b);
+      padding: 0 0 5rem;
+      min-height: 100vh;
+    }
+    .rn * { box-sizing: border-box; }
+    .rn-hero {
+      position: relative;
+      padding: clamp(6.5rem, 12vw, 8.5rem) 1.25rem 3.5rem;
+      overflow: hidden;
+      text-align: center;
+    }
+    .rn-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 55% 45% at 20% 20%, rgba(177,90,248,0.35), transparent 55%),
+        radial-gradient(ellipse 45% 40% at 80% 40%, rgba(37,99,235,0.28), transparent 50%),
+        radial-gradient(ellipse 50% 35% at 50% 100%, rgba(233,30,140,0.18), transparent 55%);
+      pointer-events: none;
+    }
+    .rn-hero__in {
+      position: relative;
+      z-index: 1;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .rn-hero__eyebrow {
+      font-family: var(--rn-h);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rn-blue);
+      margin: 0 0 1rem;
+    }
+    .rn-hero h1 {
+      font-family: var(--rn-h) !important;
+      font-size: clamp(1.85rem, 5.5vw, 3.1rem) !important;
+      font-weight: 700 !important;
+      letter-spacing: -0.03em !important;
+      line-height: 1.12 !important;
+      margin: 0 0 1rem;
+      color: #fff !important;
+    }
+    .rn-hero h1 em {
+      font-style: normal;
+      background: linear-gradient(104deg, #e9b3ff, #ff8fc8, #93c5fd);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .rn-hero__sub {
+      color: var(--rn-mut);
+      font-size: clamp(1rem, 2vw, 1.12rem);
+      line-height: 1.6;
+      max-width: 40ch;
+      margin: 0 auto 1.75rem;
+    }
+    .rn-hero__pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+    .rn-hero__pills span {
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      border: 1px solid var(--rn-line);
+      background: rgba(255,255,255,0.04);
+      color: rgba(255,255,255,0.8);
+    }
+    .rn-wrap {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+    .rn-intro {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      margin: 0 0 3.5rem;
+    }
+    @media (max-width: 800px) {
+      .rn-intro { grid-template-columns: 1fr; }
+    }
+    .rn-intro__photo {
+      border-radius: 22px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      border: 1px solid var(--rn-line);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+    }
+    .rn-intro__photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .rn-intro h2 {
+      font-family: var(--rn-h) !important;
+      font-size: clamp(1.35rem, 3vw, 1.85rem) !important;
+      font-weight: 700 !important;
+      color: #fff !important;
+      letter-spacing: -0.02em !important;
+      margin: 0 0 0.85rem;
+      line-height: 1.2 !important;
+    }
+    .rn-intro p {
+      color: var(--rn-mut);
+      line-height: 1.65;
+      margin: 0 0 0.85rem;
+      font-size: 1.02rem;
+    }
+    .rn-section-label {
+      font-family: var(--rn-h);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--rn-pink);
+      margin: 0 0 0.75rem;
+      text-align: center;
+    }
+    .rn-section-title {
+      font-family: var(--rn-h) !important;
+      font-size: clamp(1.4rem, 3.2vw, 2rem) !important;
+      font-weight: 700 !important;
+      color: #fff !important;
+      text-align: center;
+      margin: 0 0 0.5rem;
+      letter-spacing: -0.025em !important;
+    }
+    .rn-section-sub {
+      text-align: center;
+      color: var(--rn-mut);
+      max-width: 42ch;
+      margin: 0 auto 2.25rem;
+      line-height: 1.55;
+    }
+    .rn-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 3.5rem;
+    }
+    @media (max-width: 900px) {
+      .rn-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .rn-grid { grid-template-columns: 1fr; }
+    }
+    .rn-card {
+      position: relative;
+      border-radius: 20px;
+      border: 1px solid var(--rn-line);
+      background: var(--rn-card);
+      padding: 1.35rem 1.25rem 1.4rem;
+      overflow: hidden;
+      transition: transform 0.25s ease, border-color 0.25s, box-shadow 0.25s;
+    }
+    .rn-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--c1, #b15af8), var(--c2, #2563EB));
+      opacity: 0.9;
+    }
+    .rn-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,255,255,0.18);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    }
+    .rn-card__icon {
+      width: 2.6rem;
+      height: 2.6rem;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 1rem;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--rn-line);
+      color: var(--rn-vio);
+      font-size: 1.1rem;
+    }
+    .rn-card h3 {
+      font-family: var(--rn-h) !important;
+      font-size: 1.05rem !important;
+      font-weight: 700 !important;
+      color: #fff !important;
+      margin: 0 0 0.45rem;
+      letter-spacing: -0.01em !important;
+    }
+    .rn-card p {
+      margin: 0;
+      color: var(--rn-mut);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+    .rn-card ul {
+      margin: 0.75rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .rn-card li {
+      position: relative;
+      padding: 0.28rem 0 0.28rem 1rem;
+      font-size: 0.86rem;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.4;
+    }
+    .rn-card li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.7em;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--c1, #b15af8);
+    }
+    .rn-gallery {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 0.85rem;
+      margin-bottom: 3.5rem;
+    }
+    @media (max-width: 700px) {
+      .rn-gallery { grid-template-columns: 1fr; }
+    }
+    .rn-gallery__main,
+    .rn-gallery__side img {
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--rn-line);
+    }
+    .rn-gallery__main {
+      min-height: 280px;
+      background: #111;
+    }
+    .rn-gallery__main img,
+    .rn-gallery__side img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .rn-gallery__side {
+      display: grid;
+      gap: 0.85rem;
+      grid-template-rows: 1fr 1fr;
+    }
+    .rn-gallery__side > div {
+      min-height: 130px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid var(--rn-line);
+    }
+    .rn-cta {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      border-radius: 24px;
+      border: 1px solid var(--rn-line);
+      background:
+        radial-gradient(ellipse 70% 80% at 50% 0%, rgba(177,90,248,0.22), transparent 60%),
+        rgba(255,255,255,0.03);
+    }
+    .rn-cta h2 {
+      font-family: var(--rn-h) !important;
+      font-size: clamp(1.3rem, 3vw, 1.75rem) !important;
+      color: #fff !important;
+      margin: 0 0 0.65rem;
+    }
+    .rn-cta p {
+      color: var(--rn-mut);
+      max-width: 36ch;
+      margin: 0 auto 1.4rem;
+      line-height: 1.55;
+    }
+    .rn-cta__row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      justify-content: center;
+    }
+    .rn-cta a {
+      font-family: var(--rn-h);
+      font-weight: 600;
+      font-size: 0.82rem;
+      text-decoration: none;
+      padding: 0.85rem 1.35rem;
+      border-radius: 999px;
+      transition: transform 0.2s;
+    }
+    .rn-cta a:hover { transform: translateY(-2px); }
+    .rn-cta a.primary {
+      background: linear-gradient(104deg, #b15af8, #E91E8C);
+      color: #fff;
+      box-shadow: 0 0 28px rgba(233,30,140,0.3);
+    }
+    .rn-cta a.ghost {
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.88);
+      background: rgba(255,255,255,0.04);
+    }
+    .rn-note {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.4);
+    }
+    .rn-note a { color: var(--rn-blue); text-decoration: none; }
+    .rn-note a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body class="srs-unified">
+<a class="skip" href="#main">К содержанию</a>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="/index.html#top" aria-label="Sensory Regulation Systems">
+      <svg viewBox="0 0 40 40" aria-hidden="true">
+        <defs><linearGradient id="lg-brand" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b15af8"/><stop offset="1" stop-color="#ff8951"/></linearGradient></defs>
+        <rect x="4" y="10" width="32" height="24" rx="8" fill="url(#lg-brand)"/>
+        <rect x="8" y="6" width="24" height="9" rx="4.5" fill="#212121"/>
+        <circle cx="14" cy="23" r="3" fill="#fff"/><circle cx="21.5" cy="23" r="3" fill="#fff" opacity=".72"/><circle cx="29" cy="23" r="3" fill="#fff" opacity=".45"/>
+      </svg>
+      <span>Sensory<span class="brand-sub">Regulation Systems</span></span>
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="Навигация">
+      <a class="nav-prod is-srs" href="/index.html#top">SRS</a>
+      <a class="nav-prod is-kit" href="/kit.html#top">Kit</a>
+      <a class="nav-prod is-rooms act" href="/rooms/index.html">Rooms</a>
+      <span class="nav-sep" aria-hidden="true"></span>
+      <a href="/rooms/index.html#dlya-chego">Для чего</a>
+      <a href="/rooms/napolnenie.html" class="act">Наполнение</a>
+      <a href="/o-nas.html">О нас</a>
+      <a class="btn btn-dark" href="/zayavka.html">Заявка</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main" class="rn">
+  <section class="rn-hero" aria-label="Наполнение сенсорной комнаты">
+    <div class="rn-hero__in">
+      <p class="rn-hero__eyebrow">Sensory Rooms · наполнение</p>
+      <h1>Что внутри <em>сенсорной комнаты</em></h1>
+      <p class="rn-hero__sub">
+        Не «игровая» и не кабинет психолога — продуманное пространство зон,
+        где ребёнок может выдохнуть, собраться и вернуться к учёбе.
+      </p>
+      <div class="rn-hero__pills">
+        <span>Зоны регуляции</span>
+        <span>Свет · звук · касание</span>
+        <span>Школьный стандарт</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="rn-wrap">
+    <div class="rn-intro">
+      <div class="rn-intro__photo">
+        <img src="/rooms/img/34-shkola-sensori.jpg" alt="Сенсорная комната в Гимназии №34, Алматы" loading="lazy">
+      </div>
+      <div>
+        <h2>Комната как система, а не набор игрушек</h2>
+        <p>
+          Наполнение строится вокруг сенсорных каналов: зрение, слух, осязание,
+          проприоцепция и вестибуляр. Каждая зона отвечает на свой тип перегрузки.
+        </p>
+        <p>
+          Ориентир — наш стандарт в Гимназии №34: спокойный свет, мягкие поверхности,
+          понятные правила «как здесь быть» и оборудование, которое выдерживает школьный день.
+        </p>
+      </div>
+    </div>
+
+    <p class="rn-section-label">Зоны комнаты</p>
+    <h2 class="rn-section-title">Шесть опорных блоков</h2>
+    <p class="rn-section-sub">Типовой набор для школьной сенсорной комнаты Sensory Rooms. Состав адаптируем под площадь и возраст детей.</p>
+
+    <div class="rn-grid">
+      <article class="rn-card" style="--c1:#b15af8;--c2:#E91E8C">
+        <div class="rn-card__icon"><i class="fa-solid fa-eye"></i></div>
+        <h3>Визуальная зона</h3>
+        <p>Мягкий свет без резких бликов — чтобы глаза «отпустили» классную доску.</p>
+        <ul>
+          <li>Проектор / пузырьковая колонна</li>
+          <li>Световые панели и фиброволокно</li>
+          <li>Приглушённый сценарий освещения</li>
+        </ul>
+      </article>
+
+      <article class="rn-card" style="--c1:#2563EB;--c2:#93c5fd">
+        <div class="rn-card__icon"><i class="fa-solid fa-ear-listen"></i></div>
+        <h3>Звуковая зона</h3>
+        <p>Тишина и предсказуемый звук вместо школьного гула в коридоре.</p>
+        <ul>
+          <li>Шумопоглощающие материалы</li>
+          <li>Наушники / белый шум по запросу</li>
+          <li>Спокойный аудиоконтур</li>
+        </ul>
+      </article>
+
+      <article class="rn-card" style="--c1:#F97316;--c2:#ffb08a">
+        <div class="rn-card__icon"><i class="fa-solid fa-hand"></i></div>
+        <h3>Тактильная зона</h3>
+        <p>Руки получают задачу — нервной системе проще переключиться.</p>
+        <ul>
+          <li>Тактильные панели и текстуры</li>
+          <li>Фиджет-станции</li>
+          <li>Мягкие модули разной плотности</li>
+        </ul>
+      </article>
+
+      <article class="rn-card" style="--c1:#22C55E;--c2:#86efac">
+        <div class="rn-card__icon"><i class="fa-solid fa-person"></i></div>
+        <h3>Тело и давление</h3>
+        <p>Проприоцепция: когда «тело в пространстве» снова ощущается своим.</p>
+        <ul>
+          <li>Утяжелённые подушки / одеяла</li>
+          <li>Мягкие кресла и пуфы</li>
+          <li>Зона глубокого давления</li>
+        </ul>
+      </article>
+
+      <article class="rn-card" style="--c1:#E91E8C;--c2:#ff8fc8">
+        <div class="rn-card__icon"><i class="fa-solid fa-moon"></i></div>
+        <h3>Уголок спокойствия</h3>
+        <p>Место, куда можно отойти на 5–10 минут без стыда и шума.</p>
+        <ul>
+          <li>Вигвам / ниша / soft-угол</li>
+          <li>Правила «тихого входа»</li>
+          <li>Визуальное расписание пребывания</li>
+        </ul>
+      </article>
+
+      <article class="rn-card" style="--c1:#a78bfa;--c2:#c4b5fd">
+        <div class="rn-card__icon"><i class="fa-solid fa-clipboard-list"></i></div>
+        <h3>Протокол для школы</h3>
+        <p>Оборудование без регламента не работает — даём сценарий использования.</p>
+        <ul>
+          <li>Инструкция для педагогов</li>
+          <li>Таймер сессии</li>
+          <li>Кто, когда и как заходит</li>
+        </ul>
+      </article>
+    </div>
+
+    <p class="rn-section-label">Как это выглядит</p>
+    <h2 class="rn-section-title">Реальные комнаты в Алматы</h2>
+    <p class="rn-section-sub">Фото из школ-партнёров: не рендер, а пространство, где уже бывают дети.</p>
+
+    <div class="rn-gallery" aria-label="Фото сенсорных комнат">
+      <div class="rn-gallery__main">
+        <img src="/rooms/img/65-sensori.jpg" alt="Сенсорная комната в школе" loading="lazy">
+      </div>
+      <div class="rn-gallery__side">
+        <div><img src="/rooms/img/191-sensori.jpg" alt="Сенсорная комната" loading="lazy"></div>
+        <div><img src="/rooms/img/kingston-room.jpg" alt="Международный пример сенсорной комнаты" loading="lazy"></div>
+      </div>
+    </div>
+
+    <div class="rn-cta">
+      <h2>Хотите такую комнату в школе?</h2>
+      <p>Помогаем собрать наполнение, установку и сценарий работы — вместе с партнёрами и донорами.</p>
+      <div class="rn-cta__row">
+        <a class="primary" href="/rooms/contact.html#request">Запросить комнату</a>
+        <a class="ghost" href="/rooms/index.html#dlya-chego">Зачем это школам</a>
+        <a class="ghost" href="/rooms/index.html">← Назад в Rooms</a>
+      </div>
+    </div>
+
+    <p class="rn-note">
+      Нужно наполнение <strong>портативного бокса</strong>? Смотрите
+      <a href="/napolnenie.html">Наполнение Sensory Kit</a>.
+    </p>
+  </div>
+</main>
+
+<footer class="hf" style="background:#0a0614;color:#fff;padding:2.5rem 1.25rem;border-top:1px solid rgba(255,255,255,0.08)">
+  <div style="max-width:1100px;margin:0 auto;display:grid;gap:1.25rem">
+    <a href="/index.html#top" style="font-weight:800;color:#fff;text-decoration:none;font-size:1.05rem">Sensory · Regulation Systems</a>
+    <p style="margin:0;font-size:.9rem;line-height:1.5;max-width:42ch;opacity:.7">Sensory Kit + Sensory Rooms. Сенсорная поддержка для школ, семей и экстренных служб.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:1rem">
+      <a href="/kit.html#top" style="color:rgba(255,255,255,.7);font-size:.85rem;font-weight:600;text-decoration:none">Kit</a>
+      <a href="/rooms/index.html" style="color:rgba(255,255,255,.7);font-size:.85rem;font-weight:600;text-decoration:none">Rooms</a>
+      <a href="/rooms/napolnenie.html" style="color:rgba(255,255,255,.7);font-size:.85rem;font-weight:600;text-decoration:none">Наполнение Rooms</a>
+      <a href="/zayavka.html" style="color:rgba(255,255,255,.7);font-size:.85rem;font-weight:600;text-decoration:none">Заявка</a>
+    </div>
+    <p style="margin:0;font-size:.75rem;opacity:.55">© 2026 Sensory Regulation Systems</p>
+  </div>
+</footer>
+
+<script src="/site-nav.js" defer></script>
+</body>
+</html>

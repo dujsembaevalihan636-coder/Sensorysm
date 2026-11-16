@@ -1,0 +1,192 @@
+/* ===== Заявка — Sensory Kit ===== */
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Unbounded:wght@500;600;700;800&display=swap');
+
+.zf-page{
+  --mag:#E91E8C; --blue:#2563EB; --org:#F97316; --grn:#22C55E;
+  --ink:#18181b; --mut:#64748b; --line:#e8ebf2; --bg:#f7f5fb;
+  --h:'Unbounded',system-ui,sans-serif; --b:'Golos Text',system-ui,sans-serif;
+  background:var(--bg); color:var(--ink); min-height:100vh;
+}
+.zf-page .font-h{font-family:var(--h)}
+.zf-page .font-b{font-family:var(--b)}
+
+/* hero strip */
+.zf-hero{
+  position:relative; overflow:hidden;
+  padding:calc(68px + clamp(36px,6vh,64px)) 0 clamp(28px,4vw,48px);
+  background:radial-gradient(120% 100% at 10% 0%,#1a0a2e 0%,#0c1636 45%,#060a1a 100%);
+  color:#fff; text-align:center;
+}
+.zf-hero::before{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:
+    radial-gradient(ellipse 50% 60% at 20% 40%,rgba(233,30,140,.35),transparent 60%),
+    radial-gradient(ellipse 45% 50% at 85% 20%,rgba(37,99,235,.28),transparent 55%),
+    radial-gradient(ellipse 40% 40% at 70% 90%,rgba(249,115,22,.18),transparent 50%);
+}
+.zf-hero .wrap{position:relative; z-index:1; max-width:720px; margin:0 auto; padding:0 1.25rem}
+.zf-hero .tag{
+  display:inline-flex; align-items:center; gap:.5em;
+  font-family:var(--h); font-size:.68rem; font-weight:600; letter-spacing:.22em;
+  text-transform:uppercase; color:#E91E8C; margin-bottom:.9rem;
+}
+.zf-hero h1{
+  font-family:var(--h); font-weight:700; letter-spacing:-.02em; line-height:1.12;
+  font-size:clamp(1.75rem,4.5vw,2.75rem); margin:0;
+}
+.zf-hero p{
+  font-family:var(--b); color:rgba(255,255,255,.72); font-size:clamp(1rem,1.6vw,1.1rem);
+  line-height:1.55; margin:1rem auto 0; max-width:36rem;
+}
+
+/* main grid */
+.zf-main{padding:clamp(28px,5vw,56px) 0 clamp(48px,8vw,88px)}
+.zf-grid{
+  max-width:1080px; margin:0 auto; padding:0 1.15rem;
+  display:grid; gap:1.5rem;
+}
+@media (min-width:900px){
+  .zf-grid{grid-template-columns:minmax(0,.92fr) minmax(0,1.15fr); gap:2rem; align-items:start}
+}
+
+/* side panel */
+.zf-side{
+  background:#fff; border:1px solid var(--line); border-radius:24px;
+  padding:clamp(1.35rem,3vw,1.85rem);
+  box-shadow:0 12px 40px rgba(15,23,42,.05);
+}
+.zf-side h2{
+  font-family:var(--h); font-size:1.15rem; font-weight:700; margin:0 0 1rem; letter-spacing:-.01em;
+}
+.zf-benefits{list-style:none; margin:0; padding:0; display:grid; gap:.85rem}
+.zf-benefits li{
+  display:grid; grid-template-columns:auto 1fr; gap:.75rem; align-items:start;
+  font-family:var(--b); font-size:.9rem; line-height:1.45; color:#3f3f46;
+}
+.zf-benefits .ico{
+  width:40px; height:40px; border-radius:14px; display:grid; place-items:center; flex-shrink:0;
+  background:rgba(233,30,140,.1); color:var(--mag);
+}
+.zf-benefits .ico svg{width:18px; height:18px; stroke:currentColor; fill:none; stroke-width:1.85; stroke-linecap:round; stroke-linejoin:round}
+.zf-benefits b{display:block; font-family:var(--h); font-size:.88rem; font-weight:600; color:var(--ink); margin-bottom:.15rem}
+.zf-divider{height:1px; background:var(--line); margin:1.35rem 0}
+.zf-contact{font-family:var(--b); font-size:.88rem; color:var(--mut); line-height:1.55}
+.zf-contact a{color:var(--mag); font-weight:600; text-decoration:none}
+.zf-contact a:hover{text-decoration:underline}
+.zf-chips{display:flex; flex-wrap:wrap; gap:.4rem; margin-top:1rem}
+.zf-chips span{
+  font-family:var(--b); font-size:.72rem; font-weight:600; padding:.35rem .7rem; border-radius:999px;
+  background:var(--bg); color:#475569; border:1px solid var(--line);
+}
+
+/* form card */
+.zf-card{
+  position:relative; background:#fff; border:1px solid var(--line); border-radius:24px;
+  padding:clamp(1.4rem,3vw,2rem);
+  box-shadow:0 20px 50px rgba(15,23,42,.07), 0 1px 0 rgba(255,255,255,.8) inset;
+  overflow:hidden;
+}
+.zf-card::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:4px;
+  background:linear-gradient(90deg,var(--mag),var(--org),var(--blue));
+}
+
+/* toggle */
+.zf-toggle{
+  display:grid; grid-template-columns:1fr 1fr 1fr; gap:.45rem; margin-bottom:1.35rem;
+  padding:.35rem; background:var(--bg); border-radius:16px; border:1px solid var(--line);
+}
+@media (max-width:560px){.zf-toggle{grid-template-columns:1fr}}
+.zf-toggle button{
+  font-family:var(--h); font-size:.82rem; font-weight:600; border:0; border-radius:12px;
+  padding:.85rem .75rem; cursor:pointer; background:transparent; color:#64748b;
+  transition:background .2s, color .2s, box-shadow .2s, transform .15s;
+}
+.zf-toggle button:hover{color:var(--ink)}
+.zf-toggle button.active{
+  background:#fff; color:var(--mag);
+  box-shadow:0 4px 14px rgba(233,30,140,.15), 0 1px 0 rgba(255,255,255,1);
+}
+.zf-toggle button:focus-visible{outline:2px solid var(--mag); outline-offset:2px}
+
+/* fields */
+.zf-row{display:grid; gap:1rem; margin-bottom:1rem}
+@media (min-width:560px){.zf-row{grid-template-columns:1fr 1fr}}
+.zf-field{display:flex; flex-direction:column; gap:.4rem}
+.zf-field.full{margin-bottom:1rem}
+.zf-field label{
+  font-family:var(--h); font-size:.72rem; font-weight:600; letter-spacing:.02em; color:#334155;
+}
+.zf-field label span{font-family:var(--b); font-weight:500; color:var(--mut); letter-spacing:0}
+.zf-field input,
+.zf-field select,
+.zf-field textarea{
+  font-family:var(--b); font-size:.95rem; color:var(--ink);
+  border:1.5px solid var(--line); border-radius:14px; background:#fafafa;
+  padding:.85rem 1rem; transition:border-color .2s, box-shadow .2s, background .2s;
+  width:100%; box-sizing:border-box; outline:none; appearance:none;
+}
+.zf-field select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M4 6l4 4 4-4'/%3E%3C/svg%3E");
+  background-repeat:no-repeat; background-position:right 1rem center; padding-right:2.4rem;
+}
+.zf-field textarea{min-height:110px; resize:vertical; line-height:1.5}
+.zf-field input:hover,
+.zf-field select:hover,
+.zf-field textarea:hover{background:#fff; border-color:#d4d8e3}
+.zf-field input:focus,
+.zf-field select:focus,
+.zf-field textarea:focus{
+  background:#fff; border-color:var(--mag);
+  box-shadow:0 0 0 4px rgba(233,30,140,.12);
+}
+.zf-field input::placeholder,
+.zf-field textarea::placeholder{color:#94a3b8}
+
+.zf-submit{
+  width:100%; border:0; cursor:pointer;
+  font-family:var(--h); font-weight:600; font-size:.95rem; color:#fff;
+  background:linear-gradient(100deg,var(--mag),#c026d3 50%,var(--blue));
+  border-radius:999px; padding:1rem 1.5rem;
+  box-shadow:0 12px 32px rgba(233,30,140,.32);
+  transition:transform .2s, box-shadow .2s, filter .2s;
+}
+.zf-submit:hover{transform:translateY(-2px); box-shadow:0 16px 40px rgba(233,30,140,.4)}
+.zf-submit:active{transform:scale(.98)}
+.zf-submit:disabled{opacity:.65; cursor:wait; transform:none}
+.zf-submit:focus-visible{outline:2px solid var(--mag); outline-offset:3px}
+
+.zf-hint{
+  font-family:var(--b); font-size:.82rem; color:var(--mut); text-align:center;
+  margin:1rem 0 0; line-height:1.5;
+}
+.zf-hint.is-ok{color:#15803d}
+.zf-hint.is-err{color:#dc2626}
+.zf-hint b{font-weight:600}
+
+/* success overlay inside card */
+.zf-success{
+  display:none; text-align:center; padding:1.5rem .5rem 1rem;
+}
+.zf-card.is-done .zf-form{display:none}
+.zf-card.is-done .zf-success{display:block}
+.zf-success .big{
+  width:64px; height:64px; margin:0 auto 1rem; border-radius:50%;
+  display:grid; place-items:center;
+  background:linear-gradient(135deg,rgba(233,30,140,.15),rgba(37,99,235,.15));
+  color:var(--mag); font-size:1.75rem;
+}
+.zf-success h3{font-family:var(--h); font-size:1.25rem; margin:0 0 .5rem}
+.zf-success p{font-family:var(--b); color:var(--mut); margin:0 0 1.25rem; line-height:1.5}
+.zf-success .btn-again{
+  font-family:var(--h); font-size:.85rem; font-weight:600; color:var(--mag);
+  background:rgba(233,30,140,.08); border:0; border-radius:999px; padding:.7rem 1.25rem; cursor:pointer;
+}
+.zf-success .btn-again:hover{background:rgba(233,30,140,.14)}
+
+/* footer tweak on this page */
+.zf-page .foot{margin-top:0}
+
+@media (max-width:560px){
+  .zf-toggle button{font-size:.75rem; padding:.75rem .4rem}
+}

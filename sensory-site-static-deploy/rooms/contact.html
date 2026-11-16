@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/rooms/style.css">
+  <link rel="stylesheet" href="/rooms/kit-theme.css">
+  <link rel="stylesheet" href="/unified.css">
+  <link rel="stylesheet" href="/brand-unify.css">
+  <title>Контакты — Sensory Rooms</title>
+  <link rel="stylesheet" href="/site-nav.css">
+</head>
+<body class="srs-unified">
+
+<!-- UNIFIED SITE NAV -->
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="/index.html#top" aria-label="Sensory Regulation Systems">
+      <svg viewBox="0 0 40 40" aria-hidden="true">
+        <defs><linearGradient id="lg-brand" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b15af8"/><stop offset="1" stop-color="#ff8951"/></linearGradient></defs>
+        <rect x="4" y="10" width="32" height="24" rx="8" fill="url(#lg-brand)"/>
+        <rect x="8" y="6" width="24" height="9" rx="4.5" fill="#212121"/>
+        <circle cx="14" cy="23" r="3" fill="#fff"/><circle cx="21.5" cy="23" r="3" fill="#fff" opacity=".72"/><circle cx="29" cy="23" r="3" fill="#fff" opacity=".45"/>
+      </svg>
+      <span>Sensory<span class="brand-sub">Regulation Systems</span></span>
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="Навигация">
+      <a class="nav-prod is-srs" href="/index.html#top">SRS</a>
+      <a class="nav-prod is-kit" href="/kit.html#top">Kit</a>
+      <a class="nav-prod is-rooms act" href="/rooms/index.html">Rooms</a>
+      <span class="nav-sep" aria-hidden="true"></span>
+      <a href="/rooms/index.html#dlya-chego">Для чего</a>
+      <a href="/rooms/napolnenie.html">Наполнение</a>
+      <a href="/o-nas.html">О нас</a>
+      <a class="btn btn-dark" href="/zayavka.html">Заявка</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <h1 class="reveal">Свяжитесь с нами</h1>
+  <p class="reveal reveal-delay-1">Мы всегда на связи. Пишите, звоните или оставляйте заявку.</p>
+  <svg class="page-hero-wave" viewBox="0 0 1440 48" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,24 C240,54 480,0 720,18 C960,36 1200,6 1440,27 L1440,48 L0,48 Z"></path>
+  </svg>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="contact-section">
+  <div class="contact-info">
+    <h2 class="reveal">Контакты</h2>
+    <p class="reveal reveal-delay-1">Готовы ответить на любые вопросы и помочь с заявкой.</p>
+
+    <div class="contact-detail reveal reveal-delay-2">
+      <div class="icon"><i class="fa-brands fa-telegram"></i></div>
+      <div>
+        <strong>Telegram</strong>
+        <p>@bibbiabaa</p>
+      </div>
+    </div>
+
+    <div class="contact-detail reveal reveal-delay-3">
+      <div class="icon"><i class="fa-solid fa-phone"></i></div>
+      <div>
+        <strong>Телефон</strong>
+        <p>+7 747 266 8611</p>
+      </div>
+    </div>
+
+    <div class="contact-detail reveal reveal-delay-1">
+      <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+      <div>
+        <strong>Email</strong>
+        <p>sensoryrs@outlook.com</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Форма -->
+  <div class="contact-form reveal reveal-delay-2">
+    <form id="contactForm">
+      <div class="form-group">
+        <label>Ваше имя</label>
+        <input type="text" name="name" required placeholder="Иван Иванов">
+      </div>
+      <div class="form-group">
+        <label>Контакт (Telegram / Email / Телефон)</label>
+        <input type="text" name="contact" required placeholder="@username или почта">
+      </div>
+      <div class="form-group">
+        <label>Тип обращения</label>
+        <select name="type" required>
+          <option value="">Выберите...</option>
+          <option value="request">Заявка на сенсорную комнату</option>
+          <option value="partner">Хочу стать партнёром</option>
+          <option value="other">Другое</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Сообщение</label>
+        <textarea name="message" rows="5" placeholder="Расскажите подробнее..." required></textarea>
+      </div>
+      <div class="form-checkbox">
+        <input type="checkbox" id="agree" required>
+        <label for="agree">Я согласен на обработку персональных данных</label>
+      </div>
+      <button type="submit" class="btn btn-lavender form-submit">Отправить заявку</button>
+    </form>
+
+    <div class="form-success" id="formSuccess">
+      <div class="check">✅</div>
+      <h3>Заявка отправлена!</h3>
+      <p>Мы свяжемся с вами в ближайшее время.</p>
+    </div>
+  </div>
+</section>
+
+<button id="backToTop" class="back-to-top" aria-label="Наверх"><i class="fa-solid fa-arrow-up"></i></button>
+
+<script src="/rooms/script.js"></script>
+<script>
+  const form = document.getElementById('contactForm');
+  const success = document.getElementById('formSuccess');
+
+  const TG_BOT_TOKEN = '8941417185:AAErq3que8MP8Q5Fv3ig38pqmsgPxoczxdk';
+  const TG_CHAT_ID = '1105525817';
+
+  const typeLabels = {
+    request: 'Заявка на сенсорную комнату',
+    partner: 'Хочу стать партнёром',
+    other: 'Другое'
+  };
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = form.querySelector('.form-submit');
+    btn.disabled = true;
+    btn.textContent = 'Отправка...';
+
+    const data = new FormData(form);
+    const text = [
+      '🔔 Новая заявка с сайта Sensory Rooms',
+      '',
+      '👤 Имя: ' + data.get('name'),
+      '📞 Контакт: ' + data.get('contact'),
+      '📋 Тип: ' + (typeLabels[data.get('type')] || data.get('type')),
+      '',
+      '💬 Сообщение:',
+      data.get('message')
+    ].join('\n');
+
+    try {
+      const res = await fetch('https://api.telegram.org/bot' + TG_BOT_TOKEN + '/sendMessage', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: TG_CHAT_ID, text: text })
+      });
+      const json = await res.json();
+      if (!json.ok) throw new Error(json.description);
+      form.style.display = 'none';
+      success.style.display = 'block';
+    } catch (err) {
+      btn.disabled = false;
+      btn.textContent = 'Отправить заявку';
+      alert('Не удалось отправить заявку. Попробуйте ещё раз или напишите нам напрямую в Telegram: @bibbiabaa');
+    }
+  });
+</script>
+
+<footer class="foot" style="background:#0a0614;color:rgba(255,255,255,.72);padding:2.5rem 1.25rem;margin-top:2rem">
+  <div style="max-width:1160px;margin:0 auto;display:grid;gap:1rem">
+    <a href="/index.html#top" style="font-weight:800;color:#fff;text-decoration:none;font-size:1.05rem">Sensory · Regulation Systems</a>
+    <p style="margin:0;font-size:.9rem;line-height:1.5;max-width:42ch">Sensory Kit + Sensory Rooms. Сенсорная поддержка для школ, семей и экстренных служб. Фонд «Альтернатива SM» · Алматы.</p>
+    <div class="footer-links" style="display:flex;flex-wrap:wrap;gap:.65rem 1.1rem">
+      <a href="/index.html#top" style="color:rgba(255,255,255,.7);font-size:.85rem;font-weight:600;text-decoration:none">Главная</a>
+      <a href="/kit.html#top" style="color:rgba(255,255,255,.7);font-size:.85rem;font-weight:600;text-decoration:none">Kit</a>
+      <a href="/rooms/index.html" style="color:rgba(255,255,255,.7);font-size:.85rem;font-weight:600;text-decoration:none">Rooms</a>
+      <a href="/rooms/research.html" style="color:rgba(255,255,255,.7);font-size:.85rem;font-weight:600;text-decoration:none">Research</a>
+      <a href="/rooms/sponsors.html" style="color:rgba(255,255,255,.7);font-size:.85rem;font-weight:600;text-decoration:none">Спонсорам</a>
+      <a href="../zayavka.html" style="color:rgba(255,255,255,.7);font-size:.85rem;font-weight:600;text-decoration:none">Заявка Kit</a>
+      <a href="/rooms/contact.html" style="color:rgba(255,255,255,.7);font-size:.85rem;font-weight:600;text-decoration:none">Контакты</a>
+    </div>
+    <p style="margin:0;font-size:.75rem;opacity:.55">© 2026 Sensory Regulation Systems</p>
+  </div>
+</footer>
+<script>
+(function(){
+  var b=document.getElementById('burger'), n=document.getElementById('navLinks');
+  if(b&&n){
+    b.addEventListener('click',function(){
+      var o=n.classList.toggle('open');
+      b.classList.toggle('x',o);
+      b.setAttribute('aria-expanded', String(o));
+    });
+    n.querySelectorAll('a').forEach(function(a){ a.addEventListener('click',function(){ n.classList.remove('open'); b.classList.remove('x'); }); });
+  }
+  var nav=document.getElementById('nav');
+  if(nav){
+    var onS=function(){ nav.classList.toggle('on', window.scrollY>20); };
+    onS(); window.addEventListener('scroll', onS, {passive:true});
+  }
+})();
+</script>
+
+<script src="/site-nav.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+/* ═══════════════════════════════════════════════════
+   Shared site nav — same bar on SRS / Kit / Rooms
+   Layout from unified.css; product pills + active here
+   ═══════════════════════════════════════════════════ */
+
+/* SRS product pill (between Kit pink and Rooms blue) */
+.nav-links a.nav-prod.is-srs {
+  font-weight: 800;
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px;
+  color: #a78bfa !important;
+  background: rgba(177, 90, 248, 0.16) !important;
+}
+.nav-links a.nav-prod.is-srs:hover,
+.nav-links a.nav-prod.is-srs.act {
+  background: rgba(177, 90, 248, 0.28) !important;
+  color: #ddd6fe !important;
+}
+
+/* Light pages: readable SRS pill */
+body:not(:has(.ah)):not(:has(.hw)):not(.srs-unified):not(.srs-home):not(:has(.srs-hero)):not(:has(.kit-hero))
+  .nav-links a.nav-prod.is-srs {
+  color: #7c3aed !important;
+  background: rgba(177, 90, 248, 0.12) !important;
+}
+
+/* Dark surfaces: keep three product pills consistent */
+body.srs-home .nav-links a.nav-prod.is-srs,
+body:has(.srs-hero) .nav-links a.nav-prod.is-srs,
+body:has(.kit-hero) .nav-links a.nav-prod.is-srs,
+body.srs-unified .nav-links a.nav-prod.is-srs {
+  color: #d8b4fe !important;
+  background: rgba(177, 90, 248, 0.22) !important;
+}
+
+/* Active secondary links (Для чего / Наполнение / О нас) */
+.nav-links > a.act:not(.nav-prod):not(.btn) {
+  color: inherit;
+  font-weight: 700;
+}
+
+/* Brand never wraps awkwardly */
+.nav .brand > span {
+  white-space: nowrap;
+}
+.nav .brand-sub {
+  white-space: nowrap;
+}
+
+/* Rooms body already dark — ensure fixed nav sits above canvas */
+body.srs-unified header.nav {
+  z-index: 10000;
+}

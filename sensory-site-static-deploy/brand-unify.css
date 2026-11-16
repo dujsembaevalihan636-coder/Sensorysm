@@ -1,0 +1,272 @@
+/* ═══════════════════════════════════════════════════
+   Sensory Regulation Systems — unified brand layer
+   Same fonts / nav / product pills on Kit + Rooms
+   ═══════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&display=swap');
+
+:root {
+  --srs-h: 'Unbounded', system-ui, sans-serif;
+  --srs-b: 'Manrope', system-ui, sans-serif;
+  --srs-g1: #b15af8;
+  --srs-g2: #ff8951;
+  --srs-pink: #E91E8C;
+  --srs-blue: #2563EB;
+  --srs-ink: #212121;
+  --srs-mut: #5b5b5b;
+  --srs-dark: #0a0614;
+  --srs-grad: linear-gradient(104deg, #b15af8 12%, #E91E8C 55%, #ff8951 94%);
+}
+
+html { font-family: var(--srs-b); }
+body {
+  font-family: var(--srs-b) !important;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Display type: Unbounded on all major headings */
+h1, h2,
+.shead h2,
+.section-title,
+.how-title,
+.hw h1,
+.ah-title,
+.hero h1,
+.page-hero h1,
+.jumbotron h1,
+.facts h2,
+.why-effective h2,
+.international h2,
+.rooms h2,
+.std-room h2,
+.donate-cta h2,
+.impact-number {
+  font-family: var(--srs-h) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.025em !important;
+}
+
+h3, h4,
+.fact-card h3,
+.why-card h4,
+.step-card h4,
+.intl-card h4,
+.team-card h4,
+.dual-card h2 {
+  font-family: var(--srs-h) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* Body copy */
+p, li, label, input, textarea, select, .sub, .hw-sub, .ah-sub,
+.impact-label, .rooms-lead, .why-effective-lead {
+  font-family: var(--srs-b) !important;
+}
+
+/* Brand mark */
+.nav .brand,
+.nav .brand > span {
+  font-family: var(--srs-h) !important;
+  font-weight: 700 !important;
+}
+.nav .brand-sub {
+  font-family: var(--srs-b) !important;
+  font-weight: 700 !important;
+}
+
+/* Product pills Kit / Rooms — identical both sites */
+.nav-links a.nav-prod {
+  font-family: var(--srs-h) !important;
+  font-weight: 700 !important;
+  font-size: 0.78rem !important;
+  letter-spacing: 0.04em !important;
+  padding: 0.4rem 0.85rem !important;
+  border-radius: 999px !important;
+}
+.nav-links a.nav-prod.is-kit {
+  color: #ff8fc8 !important;
+  background: rgba(233, 30, 140, 0.16) !important;
+}
+.nav-links a.nav-prod.is-kit:hover,
+.nav-links a.nav-prod.is-kit.act {
+  background: rgba(233, 30, 140, 0.28) !important;
+  color: #ffb3d9 !important;
+}
+.nav-links a.nav-prod.is-rooms {
+  color: #93c5fd !important;
+  background: rgba(37, 99, 235, 0.18) !important;
+}
+.nav-links a.nav-prod.is-rooms:hover,
+.nav-links a.nav-prod.is-rooms.act {
+  background: rgba(37, 99, 235, 0.3) !important;
+  color: #bfdbfe !important;
+}
+
+/* Light pages only (exclude dark SRS home / kit hero / rooms) */
+body:not(:has(.ah)):not(:has(.hw)):not(.srs-unified):not(.srs-home):not(:has(.srs-hero)):not(:has(.kit-hero)) .nav-links a.nav-prod.is-kit {
+  color: #E91E8C !important;
+  background: rgba(233, 30, 140, 0.1) !important;
+}
+body:not(:has(.ah)):not(:has(.hw)):not(.srs-unified):not(.srs-home):not(:has(.srs-hero)):not(:has(.kit-hero)) .nav-links a.nav-prod.is-rooms {
+  color: #2563EB !important;
+  background: rgba(37, 99, 235, 0.1) !important;
+}
+
+/* Nav links body font */
+.nav-links > a {
+  font-family: var(--srs-b) !important;
+  font-weight: 600 !important;
+}
+
+/* Buttons */
+.btn, .btn-dark, .nav-btn, .ah-btn, .hw-btn {
+  font-family: var(--srs-h) !important;
+  font-weight: 600 !important;
+}
+
+/* Dual product cards polish */
+.dual {
+  margin-top: -2rem !important;
+  margin-bottom: 0;
+  z-index: 3;
+  position: relative;
+}
+/* bridge dual white cards into dark marquee */
+.dual + .mq {
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+}
+.dual-card {
+  font-family: var(--srs-b) !important;
+  border-radius: 22px !important;
+  background: #fff !important;
+  border: 1px solid #ececec !important;
+}
+.dual-card .k {
+  font-family: var(--srs-h) !important;
+  font-size: 0.62rem !important;
+  letter-spacing: 0.16em !important;
+}
+.dual-card h2 {
+  font-size: 1.35rem !important;
+}
+.dual-card .go {
+  font-family: var(--srs-h) !important;
+  font-weight: 700 !important;
+}
+
+/* Footer brand */
+.foot .brand, footer a {
+  font-family: var(--srs-b);
+}
+.foot .brand {
+  font-family: var(--srs-h) !important;
+  font-weight: 700 !important;
+}
+
+/* Tags / eyebrows */
+.tag, .hero-eyebrow, .facts-eyebrow, .ah-eyebrow, .hw-eyebrow,
+.std-room__eyebrow {
+  font-family: var(--srs-h) !important;
+}
+
+/* ── Rooms pages: force same display font ── */
+body.srs-unified h1,
+body.srs-unified h2,
+body.srs-unified h3,
+body.srs-unified h4 {
+  font-family: var(--srs-h) !important;
+}
+body.srs-unified {
+  font-family: var(--srs-b) !important;
+}
+
+/* Smooth dual theme handoff: rooms nav always matches kit dark/light rules from unified */
+body.srs-unified header.nav .nav-links a.nav-prod.is-kit {
+  color: #ff8fc8 !important;
+  background: rgba(233, 30, 140, 0.2) !important;
+}
+body.srs-unified header.nav .nav-links a.nav-prod.is-rooms {
+  color: #93c5fd !important;
+  background: rgba(37, 99, 235, 0.25) !important;
+}
+
+/* Kit secondary pages (napolnenie etc) light nav — pills readable */
+/* Do NOT force light nav on dark SRS home / product chooser / kit hero */
+body:not(.srs-unified):not(:has(.ah)):not(:has(.hw)):not(.srs-home):not(:has(.srs-hero)):not(:has(.kit-hero)) .nav {
+  background: rgba(255, 255, 255, 0.92);
+}
+body:not(.srs-unified):not(:has(.ah)):not(:has(.hw)):not(.srs-home):not(:has(.srs-hero)):not(:has(.kit-hero)) .nav .brand {
+  color: var(--srs-ink) !important;
+}
+body:not(.srs-unified):not(:has(.ah)):not(:has(.hw)):not(.srs-home):not(:has(.srs-hero)):not(:has(.kit-hero)) .nav-links > a {
+  color: var(--srs-mut) !important;
+}
+
+/* Dark nav — SRS home + Kit hero (overrides unified.css white default) */
+body.srs-home .nav,
+body:has(.srs-hero) .nav,
+body:has(.kit-hero) .nav {
+  background: rgba(5, 5, 5, 0.72) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+  box-shadow: none !important;
+}
+body.srs-home .nav .brand,
+body.srs-home .nav .brand > span,
+body:has(.srs-hero) .nav .brand,
+body:has(.srs-hero) .nav .brand > span,
+body:has(.kit-hero) .nav .brand,
+body:has(.kit-hero) .nav .brand > span {
+  color: #fff !important;
+}
+body.srs-home .nav .brand-sub,
+body:has(.srs-hero) .nav .brand-sub,
+body:has(.kit-hero) .nav .brand-sub {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+body.srs-home .nav-links > a,
+body:has(.srs-hero) .nav-links > a,
+body:has(.kit-hero) .nav-links > a {
+  color: rgba(255, 255, 255, 0.72) !important;
+}
+body.srs-home .nav-links > a:not(.btn):hover,
+body:has(.srs-hero) .nav-links > a:not(.btn):hover,
+body:has(.kit-hero) .nav-links > a:not(.btn):hover,
+body.srs-home .nav-links > a.act,
+body:has(.srs-hero) .nav-links > a.act,
+body:has(.kit-hero) .nav-links > a.act {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+body.srs-home .nav-links a.nav-prod.is-kit,
+body:has(.srs-hero) .nav-links a.nav-prod.is-kit,
+body:has(.kit-hero) .nav-links a.nav-prod.is-kit {
+  color: #ff8fc8 !important;
+  background: rgba(233, 30, 140, 0.2) !important;
+}
+body.srs-home .nav-links a.nav-prod.is-rooms,
+body:has(.srs-hero) .nav-links a.nav-prod.is-rooms,
+body:has(.kit-hero) .nav-links a.nav-prod.is-rooms {
+  color: #93c5fd !important;
+  background: rgba(37, 99, 235, 0.22) !important;
+}
+body.srs-home .nav-links .nav-sep,
+body:has(.srs-hero) .nav-links .nav-sep,
+body:has(.kit-hero) .nav-links .nav-sep {
+  background: rgba(255, 255, 255, 0.18) !important;
+}
+body.srs-home .burger span,
+body:has(.srs-hero) .burger span,
+body:has(.kit-hero) .burger span {
+  background: #fff !important;
+}
+@media (max-width: 1080px) {
+  body.srs-home .nav-links,
+  body:has(.srs-hero) .nav-links,
+  body:has(.kit-hero) .nav-links {
+    background: #0a0614 !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+  }
+}

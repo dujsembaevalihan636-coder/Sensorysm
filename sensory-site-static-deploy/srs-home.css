@@ -1,0 +1,325 @@
+/* SRS home — brand story + footer reuse from o-nas-premium */
+
+.srs-about {
+  padding: 4rem 1.15rem 3rem;
+  background: #050505;
+  color: #fff;
+}
+.srs-about__wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.srs-about__eyebrow {
+  font-family: 'Unbounded', system-ui, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #93c5fd;
+  margin: 0 0 0.75rem;
+}
+.srs-about h2 {
+  font-family: 'Unbounded', system-ui, sans-serif !important;
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem) !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  letter-spacing: -0.025em !important;
+  margin: 0 0 0.85rem;
+  line-height: 1.15 !important;
+}
+.srs-about__lead {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 1.02rem;
+  line-height: 1.55;
+  max-width: 52ch;
+  margin: 0 0 1.75rem;
+}
+.srs-about__grid {
+  display: grid;
+  gap: 0.85rem;
+}
+@media (min-width: 720px) {
+  .srs-about__grid { grid-template-columns: 1fr 1fr 1fr; }
+}
+.srs-about__card {
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.035);
+  padding: 1.35rem 1.3rem;
+  backdrop-filter: blur(12px);
+}
+.srs-about__card h3 {
+  font-family: 'Unbounded', system-ui, sans-serif !important;
+  font-size: 1rem !important;
+  color: #fff !important;
+  margin: 0 0 0.5rem;
+  font-weight: 700 !important;
+}
+.srs-about__card p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.52);
+}
+
+/* Stats on SRS home */
+.srs-stats,
+.onas-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+@media (min-width: 800px) {
+  .srs-stats,
+  .onas-stats { grid-template-columns: repeat(4, 1fr); }
+}
+.onas-stat {
+  text-align: center;
+  padding: 1.25rem 0.75rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+}
+.onas-stat b {
+  display: block;
+  font-family: 'Unbounded', system-ui, sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  background: linear-gradient(180deg, #fff, rgba(255, 255, 255, 0.55));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  line-height: 1.1;
+}
+.onas-stat span {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.srs-cta {
+  background: #050505;
+  padding: 3.5rem 1.15rem 4rem;
+  text-align: center;
+  color: #fff;
+}
+.srs-cta h2 {
+  font-family: 'Unbounded', system-ui, sans-serif !important;
+  font-size: clamp(1.5rem, 3vw, 2.1rem) !important;
+  color: #fff !important;
+  margin: 0 0 0.6rem;
+}
+.srs-cta p {
+  color: rgba(255, 255, 255, 0.5);
+  margin: 0 0 1.5rem;
+}
+.srs-cta__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: center;
+}
+.srs-cta__btn {
+  font-family: 'Unbounded', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.84rem;
+  padding: 0.9rem 1.5rem;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform 0.2s, filter 0.2s;
+}
+.srs-cta__btn:hover { transform: translateY(-2px); }
+.srs-cta__btn--kit {
+  background: linear-gradient(104deg, #b15af8, #E91E8C);
+  color: #fff;
+  box-shadow: 0 0 28px rgba(233, 30, 140, 0.3);
+}
+.srs-cta__btn--rooms {
+  background: linear-gradient(104deg, #2563EB, #60a5fa);
+  color: #fff;
+  box-shadow: 0 0 28px rgba(37, 99, 235, 0.3);
+}
+.srs-cta__btn--ghost {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Footer on SRS home */
+body.srs-home {
+  background: #050505;
+}
+body.srs-home .hf,
+.srs-foot {
+  position: relative;
+  margin: 0;
+  border-radius: 0;
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: #0a0614;
+  overflow: hidden;
+}
+.srs-foot .hf__in {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 2rem;
+  position: relative;
+  z-index: 2;
+}
+.srs-foot .hf__grid {
+  display: grid;
+  gap: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+@media (min-width: 720px) {
+  .srs-foot .hf__grid { grid-template-columns: 1.5fr 1fr 1fr 1fr; }
+}
+.srs-foot .hf__brand-name {
+  font-family: 'Unbounded', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1.35rem;
+  color: #fff;
+  margin: 0 0 0.5rem;
+}
+.srs-foot .hf__brand-name span {
+  background: linear-gradient(104deg, #e91e8c, #3ca2fa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.srs-foot h4 {
+  font-family: 'Unbounded', system-ui, sans-serif !important;
+  font-size: 0.9rem !important;
+  color: #fff !important;
+  margin: 0 0 0.85rem;
+}
+.srs-foot ul { list-style: none; margin: 0; padding: 0; }
+.srs-foot li { margin-bottom: 0.45rem; }
+.srs-foot a {
+  color: rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  font-size: 0.88rem;
+}
+.srs-foot a:hover { color: #3ca2fa; }
+.srs-foot .hf__hr {
+  border: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 0 0 1rem;
+}
+.srs-foot .hf__bottom {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+.srs-foot .hf__bg-orb1,
+.srs-foot .hf__bg-orb2 {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(90px);
+}
+.srs-foot .hf__bg-orb1 {
+  left: -10%; bottom: -30%;
+  width: 22rem; height: 22rem;
+  background: rgba(60, 162, 250, 0.12);
+}
+.srs-foot .hf__bg-orb2 {
+  right: -10%; bottom: -35%;
+  width: 24rem; height: 24rem;
+  background: rgba(233, 30, 140, 0.1);
+}
+
+/* Kit pure page hero */
+.kit-hero {
+  position: relative;
+  padding: 7rem 1.15rem 3rem;
+  background: #0a0614;
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+}
+.kit-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 50% 40% at 30% 20%, rgba(233, 30, 140, 0.3), transparent 55%),
+    radial-gradient(ellipse 40% 35% at 75% 60%, rgba(177, 90, 248, 0.15), transparent 50%);
+  pointer-events: none;
+}
+.kit-hero__in { position: relative; z-index: 1; max-width: 40rem; margin: 0 auto; }
+.kit-hero__eyebrow {
+  font-family: 'Unbounded', system-ui, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #ff8fc8;
+  margin: 0 0 0.9rem;
+}
+.kit-hero h1 {
+  font-family: 'Unbounded', system-ui, sans-serif !important;
+  font-size: clamp(1.9rem, 5.5vw, 3.2rem) !important;
+  font-weight: 700 !important;
+  color: #fff !important;
+  letter-spacing: -0.03em !important;
+  line-height: 1.1 !important;
+  margin: 0;
+}
+.kit-hero h1 em {
+  font-style: normal;
+  background: linear-gradient(104deg, #e9b3ff, #ff8fc8, #ffb08a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.kit-hero__sub {
+  margin: 1.1rem auto 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.05rem;
+  line-height: 1.55;
+  max-width: 36ch;
+}
+.kit-hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-top: 1.6rem;
+}
+.kit-hero__btn {
+  font-family: 'Unbounded', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 0.82rem;
+  padding: 0.85rem 1.35rem;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+.kit-hero__btn:hover { transform: translateY(-2px); }
+.kit-hero__btn--p {
+  background: linear-gradient(104deg, #b15af8, #E91E8C);
+  color: #fff;
+  box-shadow: 0 0 28px rgba(233, 30, 140, 0.35);
+}
+.kit-hero__btn--g {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+body:has(.kit-hero) .nav {
+  background: rgba(10, 6, 20, 0.55) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.06) !important;
+}
+body:has(.kit-hero) .nav .brand,
+body:has(.kit-hero) .nav .brand > span { color: #fff !important; }
+body:has(.kit-hero) .nav .brand-sub { color: rgba(255, 255, 255, 0.5) !important; }
+body:has(.kit-hero) .nav-links > a { color: rgba(255, 255, 255, 0.7) !important; }
+body:has(.kit-hero) .burger span { background: #fff !important; }
+@media (max-width: 1080px) {
+  body:has(.kit-hero) .nav-links {
+    background: #0f0a18 !important;
+  }
+}

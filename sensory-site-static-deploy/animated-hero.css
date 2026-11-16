@@ -1,0 +1,328 @@
+/* ═══════════════════════════════════════════════════
+   Animated Hero — Tommy Jepsen / twblocks hero5 style
+   Pure CSS transitions, no framer-motion
+   ═══════════════════════════════════════════════════ */
+
+.ah {
+  --ah-h: 'Unbounded', system-ui, sans-serif;
+  --ah-b: 'Manrope', system-ui, sans-serif;
+  position: relative;
+  min-height: min(100svh, 920px);
+  width: 100%;
+  max-width: 100vw;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #0a0614;
+  color: #fff;
+  text-align: center;
+  padding: 6.5rem 1.15rem 4rem;
+}
+
+/* ambient glow mesh */
+.ah::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background:
+    radial-gradient(ellipse 50% 40% at 30% 30%, rgba(233, 30, 140, 0.35), transparent 55%),
+    radial-gradient(ellipse 45% 40% at 75% 60%, rgba(37, 99, 235, 0.3), transparent 50%),
+    radial-gradient(ellipse 40% 30% at 50% 90%, rgba(177, 90, 248, 0.2), transparent 50%);
+  animation: ah-glow 12s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 0;
+}
+@keyframes ah-glow {
+  0% { transform: scale(1) translate(0, 0); opacity: 0.9; }
+  100% { transform: scale(1.08) translate(2%, -2%); opacity: 1; }
+}
+
+.ah-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, transparent 25%, rgba(10, 6, 20, 0.65) 100%);
+}
+
+.ah-in {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 52rem;
+  margin: 0 auto;
+}
+
+.ah-eyebrow {
+  font-family: var(--ah-h);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #ff8fc8;
+  margin: 0 0 1.15rem;
+}
+
+/* Title row with rotating word */
+.ah-title {
+  font-family: var(--ah-h);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  margin: 0;
+  font-size: clamp(2rem, 6.5vw, 4.25rem);
+  text-shadow: 0 0 48px rgba(233, 30, 140, 0.3);
+}
+
+.ah-title-line {
+  display: block;
+}
+
+.ah-rotator {
+  display: inline-grid;
+  vertical-align: bottom;
+  position: relative;
+  text-align: left;
+  min-width: 4.2ch;
+  margin-left: 0.15em;
+}
+
+/* reserve height with invisible longest-ish word */
+.ah-rotator::after {
+  content: attr(data-width);
+  visibility: hidden;
+  font: inherit;
+  white-space: nowrap;
+  grid-area: 1 / 1;
+  padding: 0 0.08em;
+}
+
+.ah-word {
+  grid-area: 1 / 1;
+  font: inherit;
+  white-space: nowrap;
+  background: linear-gradient(104deg, #e9b3ff 0%, #ff8fc8 45%, #ffb08a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: 0;
+  transform: translateY(110%);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+  padding: 0 0.08em;
+}
+
+.ah-word.is-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ah-word.is-out {
+  opacity: 0;
+  transform: translateY(-110%);
+}
+
+.ah-sub {
+  font-family: var(--ah-b);
+  font-size: clamp(1rem, 1.9vw, 1.2rem);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.72);
+  margin: 1.4rem auto 0;
+  max-width: 36rem;
+  font-weight: 500;
+}
+
+.ah-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.ah-btn {
+  font-family: var(--ah-h);
+  font-weight: 600;
+  font-size: 0.88rem;
+  border-radius: 999px;
+  padding: 0.95rem 1.85rem;
+  text-decoration: none;
+  transition: transform 0.2s, background 0.2s, box-shadow 0.2s, border-color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.ah-btn--p {
+  background: linear-gradient(104deg, #b15af8 0%, #E91E8C 55%, #ff8951 100%);
+  color: #fff;
+  box-shadow: 0 0 36px rgba(233, 30, 140, 0.45);
+}
+
+.ah-btn--p:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 40px rgba(233, 30, 140, 0.55);
+}
+
+.ah-btn--g {
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  backdrop-filter: blur(8px);
+}
+
+.ah-btn--g:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.45);
+  transform: translateY(-2px);
+}
+
+/* keep woven canvas optional under hero if present */
+.ah .hw-canvas,
+.ah .ah-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.55;
+  pointer-events: none;
+}
+.ah .ah-canvas canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+/* nav over dark hero */
+body:has(.ah) .nav {
+  background: rgba(10, 6, 20, 0.55) !important;
+  backdrop-filter: blur(14px);
+  border-bottom-color: rgba(255, 255, 255, 0.06) !important;
+}
+body:has(.ah) .nav.on {
+  background: rgba(10, 6, 20, 0.9) !important;
+}
+body:has(.ah) .nav .brand,
+body:has(.ah) .nav .brand > span { color: #fff !important; }
+body:has(.ah) .nav .brand-sub { color: rgba(255, 255, 255, 0.5) !important; }
+body:has(.ah) .nav-links > a { color: rgba(255, 255, 255, 0.72) !important; }
+body:has(.ah) .nav-links > a:hover { color: #fff !important; background: rgba(255, 255, 255, 0.08) !important; }
+body:has(.ah) .nav-links > a.act { color: #fff !important; background: rgba(255, 255, 255, 0.1) !important; }
+body:has(.ah) .burger span { background: #fff !important; }
+@media (max-width: 1080px) {
+  body:has(.ah) .nav-links {
+    background: #120e1a !important;
+    border-top-color: rgba(255, 255, 255, 0.08) !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .ah { padding: 5.5rem 1rem 3rem; min-height: auto; }
+  .ah-title { font-size: clamp(1.75rem, 8.5vw, 2.4rem); }
+  .ah-rotator { min-width: 5ch; display: block; margin: 0.15em auto 0; text-align: center; }
+  .ah-rotator::after { display: block; }
+  .ah-word { text-align: center; width: 100%; }
+  .ah-cta { flex-direction: column; align-items: stretch; }
+  .ah-btn { justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ah::before { animation: none; }
+  .ah-word { transition: opacity 0.2s; transform: none !important; }
+}
+
+/* ═══════════════════════════════════════════════════
+   Marquee — sharebien-style running strip
+   ═══════════════════════════════════════════════════ */
+.mq {
+  position: relative;
+  background: #0a0614;
+  border-block: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  padding: 1.1rem 0;
+}
+.mq-label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  padding: 0 1.25rem 0 1.5rem;
+  font-family: 'Unbounded', system-ui, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  background: linear-gradient(90deg, #0a0614 70%, transparent);
+  pointer-events: none;
+}
+.mq-track {
+  display: flex;
+  width: max-content;
+  animation: mq-run 38s linear infinite;
+  gap: 0;
+}
+.mq:hover .mq-track { animation-play-state: paused; }
+@keyframes mq-run {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.mq-group {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  padding-right: 2.5rem;
+  padding-left: 7rem;
+}
+.mq-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  white-space: nowrap;
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.78);
+  letter-spacing: -0.01em;
+}
+.mq-item span.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: linear-gradient(104deg, #b15af8, #ff8951);
+  flex-shrink: 0;
+}
+.mq-item img {
+  height: 28px;
+  width: auto;
+  max-width: 100px;
+  object-fit: contain;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 8px;
+  padding: 0.25rem 0.45rem;
+  filter: none;
+}
+.mq-item.is-press {
+  font-family: 'Unbounded', system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 640px) {
+  .mq-label { font-size: 0.55rem; padding-left: 0.85rem; padding-right: 0.5rem; }
+  .mq-group { padding-left: 5.5rem; gap: 1.75rem; padding-right: 1.75rem; }
+  .mq-item { font-size: 0.82rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mq-track { animation: none; }
+}

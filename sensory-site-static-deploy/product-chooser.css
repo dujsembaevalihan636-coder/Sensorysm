@@ -1,0 +1,436 @@
+/* ═══════════════════════════════════════════════════
+   Product chooser — Kit vs Rooms (SRS home)
+   ═══════════════════════════════════════════════════ */
+
+.srs-hero {
+  --ph: 'Unbounded', system-ui, sans-serif;
+  --pb: 'Manrope', system-ui, sans-serif;
+  position: relative;
+  min-height: min(100svh, 980px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 6.5rem 1.15rem 3.5rem;
+  background: #050505;
+  color: #fff;
+  overflow: hidden;
+  text-align: center;
+  isolation: isolate;
+}
+
+/* Woven Light (21st) — full-bleed WebGL layer behind copy */
+.srs-hero__woven,
+.srs-hero .hw-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.srs-hero__woven canvas,
+.srs-hero .hw-canvas canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+.srs-hero__glow {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 50% 40% at 70% 55%, rgba(233, 30, 140, 0.12), transparent 55%),
+    radial-gradient(ellipse 45% 35% at 30% 60%, rgba(37, 99, 235, 0.1), transparent 50%);
+}
+.srs-hero__vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  /* light scrim — text readable, woven still visible */
+  background:
+    radial-gradient(ellipse 50% 42% at 50% 36%, rgba(5, 5, 5, 0.55) 0%, rgba(5, 5, 5, 0.25) 50%, transparent 75%),
+    linear-gradient(180deg, rgba(5, 5, 5, 0.55) 0%, transparent 30%, transparent 70%, rgba(5, 5, 5, 0.5) 100%);
+}
+
+.srs-hero__in {
+  position: relative;
+  z-index: 2;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* readable type over woven bg */
+.srs-hero__eyebrow {
+  color: #ffb3d9 !important;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.85), 0 0 24px rgba(0, 0, 0, 0.5);
+}
+.srs-hero__title {
+  color: #fff !important;
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.9),
+    0 4px 28px rgba(0, 0, 0, 0.75),
+    0 0 40px rgba(0, 0, 0, 0.45);
+}
+.srs-hero__sub {
+  color: rgba(255, 255, 255, 0.88) !important;
+  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.9), 0 2px 24px rgba(0, 0, 0, 0.55);
+}
+.srs-hero__foot,
+.srs-hero__foot a {
+  color: rgba(255, 255, 255, 0.75) !important;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.8);
+}
+.srs-hero__foot a:hover {
+  color: #fff !important;
+}
+
+/* simple pill CTAs — no big product boxes */
+.srs-hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  justify-content: center;
+  margin: 1.85rem 0 0;
+}
+.srs-hero__btn {
+  font-family: var(--ph);
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  padding: 0.9rem 1.45rem;
+  border-radius: 999px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+}
+.srs-hero__btn:hover {
+  transform: translateY(-2px);
+}
+.srs-hero__btn--kit {
+  background: linear-gradient(104deg, #b15af8, #E91E8C);
+  color: #fff;
+}
+.srs-hero__btn--rooms {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.srs-hero__btn--rooms:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(147, 197, 253, 0.45);
+}
+
+.srs-hero__eyebrow {
+  font-family: var(--ph);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #ff8fc8;
+  margin: 0 0 1rem;
+}
+
+.srs-hero__title {
+  font-family: var(--ph);
+  font-weight: 800;
+  font-size: clamp(1.85rem, 5.8vw, 3.6rem);
+  letter-spacing: -0.03em;
+  line-height: 1.08;
+  margin: 0 auto;
+  max-width: 16ch;
+}
+.srs-hero__title em {
+  font-style: normal;
+  background: linear-gradient(104deg, #e9b3ff 0%, #ff8fc8 45%, #93c5fd 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.srs-hero__sub {
+  font-family: var(--pb);
+  font-size: clamp(0.98rem, 1.8vw, 1.15rem);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.62);
+  margin: 1.15rem auto 0;
+  max-width: 38ch;
+}
+
+.srs-hero__pick-label {
+  font-family: var(--ph);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 2.25rem 0 1rem;
+}
+
+/* ── Chooser cards ── */
+.srs-pick {
+  display: grid;
+  gap: 0.9rem;
+  max-width: 920px;
+  margin: 0 auto;
+  text-align: left;
+}
+@media (min-width: 760px) {
+  .srs-pick {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.1rem;
+  }
+}
+
+.srs-pick__card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 280px;
+  padding: 1.5rem 1.45rem 1.35rem;
+  border-radius: 28px;
+  text-decoration: none;
+  color: #fff;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s, box-shadow 0.35s, background 0.3s;
+}
+.srs-pick__card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.35s;
+  pointer-events: none;
+}
+.srs-pick__card.is-kit::before {
+  background:
+    radial-gradient(ellipse 80% 70% at 10% 0%, rgba(233, 30, 140, 0.35), transparent 55%),
+    linear-gradient(160deg, rgba(233, 30, 140, 0.12), transparent 50%);
+}
+.srs-pick__card.is-rooms::before {
+  background:
+    radial-gradient(ellipse 80% 70% at 90% 0%, rgba(37, 99, 235, 0.35), transparent 55%),
+    linear-gradient(200deg, rgba(37, 99, 235, 0.14), transparent 50%);
+}
+.srs-pick__card:hover {
+  transform: translateY(-6px) scale(1.01);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.45);
+  background: rgba(255, 255, 255, 0.06);
+}
+.srs-pick__card:hover::before { opacity: 1; }
+.srs-pick__card.is-kit:hover {
+  box-shadow: 0 32px 80px rgba(233, 30, 140, 0.22), 0 0 0 1px rgba(233, 30, 140, 0.25);
+}
+.srs-pick__card.is-rooms:hover {
+  box-shadow: 0 32px 80px rgba(37, 99, 235, 0.22), 0 0 0 1px rgba(37, 99, 235, 0.25);
+}
+
+.srs-pick__top {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1.1rem;
+}
+.srs-pick__badge {
+  font-family: var(--ph);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+}
+.srs-pick__card.is-kit .srs-pick__badge {
+  color: #ff8fc8;
+  background: rgba(233, 30, 140, 0.18);
+  border: 1px solid rgba(233, 30, 140, 0.25);
+}
+.srs-pick__card.is-rooms .srs-pick__badge {
+  color: #93c5fd;
+  background: rgba(37, 99, 235, 0.18);
+  border: 1px solid rgba(37, 99, 235, 0.25);
+}
+.srs-pick__num {
+  font-family: var(--ph);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.28);
+  letter-spacing: 0.08em;
+}
+
+.srs-pick__icon {
+  position: relative;
+  z-index: 1;
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+.srs-pick__card.is-kit .srs-pick__icon {
+  background: linear-gradient(135deg, rgba(233, 30, 140, 0.35), rgba(177, 90, 248, 0.25));
+  box-shadow: 0 8px 24px rgba(233, 30, 140, 0.25);
+}
+.srs-pick__card.is-rooms .srs-pick__icon {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.4), rgba(96, 165, 250, 0.2));
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25);
+}
+
+.srs-pick__card h2 {
+  position: relative;
+  z-index: 1;
+  font-family: var(--ph) !important;
+  font-size: clamp(1.45rem, 3vw, 1.85rem) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.025em !important;
+  margin: 0 0 0.55rem !important;
+  color: #fff !important;
+  line-height: 1.15 !important;
+}
+.srs-pick__card p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-family: var(--pb);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.58);
+  flex: 1;
+}
+
+.srs-pick__tags {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 1.1rem 0 1.25rem;
+}
+.srs-pick__tags span {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  padding: 0.3rem 0.65rem;
+}
+
+.srs-pick__go {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--ph);
+  font-weight: 700;
+  font-size: 0.88rem;
+  margin-top: auto;
+  transition: gap 0.25s;
+}
+.srs-pick__card.is-kit .srs-pick__go { color: #ff8fc8; }
+.srs-pick__card.is-rooms .srs-pick__go { color: #93c5fd; }
+.srs-pick__card:hover .srs-pick__go { gap: 0.7rem; }
+.srs-pick__go svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+/* VS divider on desktop */
+@media (min-width: 760px) {
+  .srs-pick {
+    position: relative;
+  }
+  .srs-pick::after {
+    content: "или";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    font-family: var(--ph);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #0a0614;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+  }
+}
+
+.srs-hero__foot {
+  position: relative;
+  z-index: 2;
+  margin-top: 2rem;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.35);
+  font-family: var(--pb);
+}
+.srs-hero__foot a {
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+.srs-hero__foot a:hover { color: #fff; }
+
+/* Nav over SRS hero */
+body:has(.srs-hero) .nav {
+  background: rgba(5, 5, 5, 0.55) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.06) !important;
+  backdrop-filter: blur(14px);
+}
+body:has(.srs-hero) .nav.on {
+  background: rgba(5, 5, 5, 0.9) !important;
+}
+body:has(.srs-hero) .nav .brand,
+body:has(.srs-hero) .nav .brand > span { color: #fff !important; }
+body:has(.srs-hero) .nav .brand-sub { color: rgba(255, 255, 255, 0.5) !important; }
+body:has(.srs-hero) .nav-links > a { color: rgba(255, 255, 255, 0.7) !important; }
+body:has(.srs-hero) .nav-links > a:hover {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+body:has(.srs-hero) .nav-links > a.act {
+  color: #fff !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+body:has(.srs-hero) .burger span { background: #fff !important; }
+@media (max-width: 1080px) {
+  body:has(.srs-hero) .nav-links {
+    background: #0c0a12 !important;
+    border-top-color: rgba(255, 255, 255, 0.08) !important;
+  }
+}
+
+/* Hide old dual under hero if any leftover */
+.srs-hero + .dual { display: none !important; }
+
+@media (max-width: 560px) {
+  .srs-hero { padding: 5.75rem 1rem 2.5rem; min-height: auto; }
+  .srs-pick__card { min-height: 240px; }
+}

@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sensory Kit — сенсорная поддержка прямо в классе</title>
+<meta name="description" content="Sensory Kit — готовый набор ~40 сенсорных инструментов для школ, экстренных служб и семей. Фонд «Альтернатива SM».">
+<meta name="theme-color" content="#0a0614">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Unbounded:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style-v2.css">
+<link rel="stylesheet" href="hero-map.css">
+<link rel="stylesheet" href="unified.css">
+<link rel="stylesheet" href="brand-unify.css">
+<link rel="stylesheet" href="srs-home.css">
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23b15af8'/%3E%3Cstop offset='1' stop-color='%23ff8951'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23fff'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/site-nav.css">
+<script>
+/* pin Kit to top before map loads (skip real section anchors) */
+(function(){
+  var h=(location.hash||'').toLowerCase();
+  if(h && h!=='#' && h!=='#top' && h!=='#kit-top') return;
+  if('scrollRestoration' in history) history.scrollRestoration='manual';
+  var go=function(){window.scrollTo(0,0);document.documentElement.scrollTop=0;document.body.scrollTop=0;};
+  go();
+  document.addEventListener('DOMContentLoaded',go,{once:true});
+})();
+</script>
+</head>
+<body id="top">
+<a class="skip" href="#main">К содержанию</a>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="/index.html#top" aria-label="Sensory Regulation Systems">
+      <svg viewBox="0 0 40 40" aria-hidden="true">
+        <defs><linearGradient id="lg-brand" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b15af8"/><stop offset="1" stop-color="#ff8951"/></linearGradient></defs>
+        <rect x="4" y="10" width="32" height="24" rx="8" fill="url(#lg-brand)"/>
+        <rect x="8" y="6" width="24" height="9" rx="4.5" fill="#212121"/>
+        <circle cx="14" cy="23" r="3" fill="#fff"/><circle cx="21.5" cy="23" r="3" fill="#fff" opacity=".72"/><circle cx="29" cy="23" r="3" fill="#fff" opacity=".45"/>
+      </svg>
+      <span>Sensory<span class="brand-sub">Regulation Systems</span></span>
+    </a>
+    <nav class="nav-links" id="navLinks" aria-label="Навигация">
+      <a class="nav-prod is-srs" href="/index.html#top">SRS</a>
+      <a class="nav-prod is-kit act" href="/kit.html#top">Kit</a>
+      <a class="nav-prod is-rooms" href="/rooms/index.html">Rooms</a>
+      <span class="nav-sep" aria-hidden="true"></span>
+      <a href="/kit.html#dlya-chego">Для чего</a>
+      <a href="/napolnenie.html">Наполнение</a>
+      <a href="/o-nas.html">О нас</a>
+      <a class="btn btn-dark" href="/zayavka.html">Заявка</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- Kit hero -->
+<section class="kit-hero" id="kit-top" aria-label="Sensory Kit">
+  <div class="kit-hero__in">
+    <p class="kit-hero__eyebrow">Sensory Kit · продукт SRS</p>
+    <h1>Спокойствие можно дать <em>в руки</em></h1>
+    <p class="kit-hero__sub">Готовый набор ~40 сенсорных инструментов для класса, МЧС и семей. Когда психолога нет рядом — саморегуляция за минуты.</p>
+    <div class="kit-hero__cta">
+      <a class="kit-hero__btn kit-hero__btn--p" href="#dlya-chego">Узнать о боксе</a>
+      <a class="kit-hero__btn kit-hero__btn--g" href="zayavka.html">Заказать</a>
+      <a class="kit-hero__btn kit-hero__btn--g" href="index.html">← Все продукты SRS</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ МАСШТАБ ПРОБЛЕМЫ ============ -->
+<section class="pain">
+  <div class="fx" aria-hidden="true">
+    <i class="fx-bub" style="--x:6%;--d:11s;--s:22px;--c:rgba(177,90,248,.16)"></i>
+    <i class="fx-bub" style="--x:22%;--d:14s;--dl:3s;--s:34px;--c:rgba(255,137,81,.14)"></i>
+    <i class="fx-bub" style="--x:47%;--d:12s;--dl:6s;--s:18px;--c:rgba(31,0,255,.10)"></i>
+    <i class="fx-bub" style="--x:70%;--d:15s;--dl:1.5s;--s:42px;--c:rgba(177,90,248,.12)"></i>
+    <i class="fx-bub" style="--x:88%;--d:10s;--dl:4.5s;--s:24px;--c:rgba(255,137,81,.16)"></i>
+    <i class="fx-bub" style="--x:34%;--d:13s;--dl:8s;--s:28px;--c:rgba(31,0,255,.08)"></i>
+  </div>
+  <div class="wrap">
+    <div class="shead shead--c rv">
+      <span class="tag">Sensory Kit · Казахстан</span>
+      <h2>Масштаб <span class="grad">проблемы</span></h2>
+    </div>
+    <div class="pain-grid">
+      <article class="pain-card rv">
+        <div class="pain-num">~1:440</div>
+        <p>соотношение спец. организаций и детей с ООП в Казахстане</p>
+      </article>
+      <article class="pain-card rv">
+        <div class="pain-num"><span data-count="74" data-suffix="%">0%</span></div>
+        <p>подростков испытывают высокий академический стресс</p>
+        <span class="src">Haritay et al., Frontiers in Public Health, 2025</span>
+      </article>
+      <article class="pain-card rv">
+        <div class="pain-num">5–15 мин</div>
+        <p>Стадия витальных реакций после экстремального события</p>
+      </article>
+    </div>
+    <p class="pain-note gborder rv">Современная система не в состоянии помочь каждому ребёнку вовремя</p>
+  </div>
+</section>
+
+<!-- ============ ДЛЯ ЧЕГО ============ -->
+<section class="uses" id="dlya-chego">
+  <div class="fx" aria-hidden="true">
+    <span class="fx-ring" style="width:560px;height:560px;right:-220px;top:-180px;--d:85s"></span>
+    <span class="fx-ring" style="width:380px;height:380px;left:-170px;bottom:-130px;--d:60s;border-color:rgba(233,30,140,.12)"></span>
+    <span class="orb orb--p" style="width:360px;height:360px;left:-170px;top:18%;opacity:.3" data-plx="0.14"></span>
+    <span class="orb orb--o" style="width:300px;height:300px;right:-150px;bottom:8%;opacity:.28" data-plx="-0.1"></span>
+  </div>
+  <div class="wrap">
+    <div class="shead rv">
+      <span class="tag">Для чего нужен Sensory Kit</span>
+      <h2>Пять задач быстрой и эффективной <span class="grad">саморегуляции</span></h2>
+      <p class="sub">Они помогают вернуть спокойствие и фокус в любой ситуации.</p>
+    </div>
+
+    <div class="stack">
+      <article class="ucard rv" style="--p:20%">
+        <span class="num">01</span>
+        <div>
+          <h3>Снятие тревоги и стресса</h3>
+          <p>Тактильная стимуляция и повторяющиеся движения успокаивают нервную систему и снижают тревожность.</p>
+        </div>
+      </article>
+      <article class="ucard rv" style="--p:40%">
+        <span class="num">02</span>
+        <div>
+          <h3>Концентрация на уроке</h3>
+          <p>Даёт выход лишней энергии и помогает сосредоточиться на задаче, не отвлекая других учеников.</p>
+        </div>
+      </article>
+      <article class="ucard rv" style="--p:60%">
+        <span class="num">03</span>
+        <div>
+          <h3>Скорая помощь учителю</h3>
+          <p>Истерика, паника, конфликт — быстрый инструмент, чтобы вернуть ребёнку спокойствие, когда психолога нет рядом.</p>
+        </div>
+      </article>
+      <article class="ucard rv" style="--p:80%">
+        <span class="num">04</span>
+        <div>
+          <h3>Поддержка детей с ОПП</h3>
+          <p>Для нейроразнообразных учеников (СДВГ, РАС, сенсорные особенности): инклюзия и равные условия.</p>
+        </div>
+      </article>
+      <article class="ucard rv" style="--p:100%">
+        <span class="num">05</span>
+        <div>
+          <h3>Первые минуты после стресса</h3>
+          <p>Стабилизация ребёнка до прибытия психолога — сразу после острого стресса.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="detail rv">
+      <span class="tag">Подробнее — что показывает практика</span>
+      <h3>Почему это действительно помогает</h3>
+      <div class="dlist">
+        <div class="di"><span class="n">01</span><p>Повторяющиеся движения — сжать мяч, перебирать кольца, крутить спиннер — успокаивают нервную систему и снимают тревогу.</p></div>
+        <div class="di"><span class="n">02</span><p>Тихие тактильные инструменты помогают вернуть фокус, не отвлекая класс — в отличие от шумных «игрушек».</p></div>
+        <div class="di"><span class="n">03</span><p>Особенно полезны детям с СДВГ, РАС и сенсорными особенностями: движение и тактильный ввод улучшают внимание.</p></div>
+        <div class="di"><span class="n">04</span><p>Сенсорный уголок с боксом работает как «место для перезагрузки» — пауза от фрустрирующей задачи и возврат к работе.</p></div>
+      </div>
+      <p class="cite">По материалам исследований и практики применения сенсорных инструментов в образовательной среде.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ПРИМЕНЕНИЕ ============ -->
+<section class="seg" id="primenenie">
+  <div class="fx" aria-hidden="true">
+    <b class="fx-plus" style="left:7%;top:16%;color:#b15af8;--d:9s"></b>
+    <b class="fx-plus" style="left:87%;top:12%;color:#ff8951;--d:12s"></b>
+    <b class="fx-plus" style="left:77%;top:72%;color:#1f00ff;--d:10s"></b>
+    <b class="fx-plus" style="left:14%;top:80%;color:#ff8951;--d:13s"></b>
+    <b class="fx-plus" style="left:48%;top:8%;color:#1f00ff;--d:11s"></b>
+    <span class="orb orb--o" style="width:320px;height:320px;right:-150px;bottom:-130px;opacity:.32" data-plx="0.12"></span>
+  </div>
+  <div class="wrap">
+    <div class="shead rv">
+      <span class="tag">Область применения</span>
+      <h2>Школьный, мобильный и домашний — <span class="grad">один бокс, три среды</span></h2>
+      <p class="sub">Sensory Kit работает там, где ребёнок оказывается в стрессе — в классе, на месте ЧС или дома.</p>
+    </div>
+    <div class="seg-grid">
+      <article class="scard rv">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5-9-5z"/><path d="M21 9v6"/><path d="M6 11v5c0 1 3 3 6 3s6-2 6-3v-5"/></svg></span>
+        <h3>Школы и образование</h3>
+        <p>Боксы для классов и кабинетов психолога. Быстрая саморегуляция в течение учебного дня.</p>
+      </article>
+      <article class="scard rv">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v5c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></span>
+        <h3>МЧС и экстренные службы</h3>
+        <p>Пожарные первыми прибывают на место ЧС и контактируют с детьми в остром стрессе. Мобильный бокс в машине — немедленная сенсорная помощь.</p>
+      </article>
+      <article class="scard rv">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v9h14v-9"/><path d="M10 19v-5h4v5"/></svg></span>
+        <h3>Домашний и мобильный набор</h3>
+        <p>Домашний набор: помогает справляться со стрессом и снижает всплески после школы — для семей с особенными детьми.</p>
+      </article>
+    </div>
+
+    <div class="train gborder rv">
+      <div>
+        <span class="tag tag--ondark">Тренинг для персонала</span>
+        <h2>Закажите обучение для вашей команды</h2>
+        <p>Проведём тренинг для педагогов и сотрудников: как работать с сенсорными наборами и применять их в нестандартных ситуациях.</p>
+      </div>
+      <div class="train-cta">
+        <a class="btn btn-grad" href="zayavka.html?req=training">Заказать тренинг для персонала</a>
+        <a class="btn btn-blueghost" href="napolnenie.html">Что входит в бокс</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ НАУКА (blue) ============ -->
+<section class="science" id="pochemu">
+  <span class="orb orb--p" aria-hidden="true"></span>
+  <span class="orb orb--o" aria-hidden="true"></span>
+  <div class="fx" aria-hidden="true">
+    <i class="fx-star" style="left:6%;top:18%;--d:3.4s"></i>
+    <i class="fx-star" style="left:15%;top:70%;--d:4.6s;--dl:1s"></i>
+    <i class="fx-star" style="left:24%;top:32%;--d:3.8s;--dl:2s"></i>
+    <i class="fx-star" style="left:38%;top:12%;--d:5s;--dl:.5s"></i>
+    <i class="fx-star" style="left:47%;top:62%;--d:4.2s;--dl:1.6s"></i>
+    <i class="fx-star" style="left:58%;top:22%;--d:3.6s;--dl:2.4s"></i>
+    <i class="fx-star" style="left:69%;top:78%;--d:4.8s;--dl:.8s"></i>
+    <i class="fx-star" style="left:78%;top:38%;--d:3.5s;--dl:1.8s"></i>
+    <i class="fx-star" style="left:88%;top:14%;--d:4.4s;--dl:.3s"></i>
+    <i class="fx-star" style="left:93%;top:58%;--d:5.2s;--dl:2.8s"></i>
+  </div>
+  <div class="wrap">
+    <div class="shead rv">
+      <span class="tag tag--onblue">Почему это работает</span>
+      <h2>Не догадки, а методика, наука и мировой опыт</h2>
+      <p class="sub">Проверено реальным внедрением в Алматы и подтверждено исследованиями лучших университетов мира.</p>
+    </div>
+
+    <div class="feat-grid">
+      <article class="feat rv"><span class="num">01</span><div><h3>Специалисты по сенсорной интеграции</h3><p>Состав набора разработан вместе с профильными специалистами под задачи саморегуляции.</p></div></article>
+      <article class="feat rv"><span class="num">02</span><div><h3>Кардиффский университет (Cardiff University)</h3><p>Исследования Wales Autism Research Centre: сенсорные инструменты улучшают вовлечённость, снижают тревожность и укрепляют контакт педагога с ребёнком.</p></div></article>
+      <article class="feat rv"><span class="num">03</span><div><h3>Carter's Kits и Lancaster IMS</h3><p>Та же модель сенсорных наборов уже доказала эффективность в США и подтверждена исследованиями Lancaster IMS. Более 21 000 боксов уже переданы по всей территории США.</p></div></article>
+      <article class="feat rv"><span class="num">04</span><div><h3>Больницы и клиники мирового уровня</h3><p>Сенсорные боксы используют Boston Children's Hospital, Great Ormond Street (Лондон) и другие ведущие детские клиники мира.</p></div></article>
+    </div>
+
+    <div class="subhead rv">
+      <span class="tag tag--onblue">Доказательства из науки</span>
+      <h3>Что показали исследования университетов</h3>
+      <p>Учёные измерили, как сенсорные инструменты влияют на учёбу и эмоциональное состояние детей. Вот конкретные результаты.</p>
+    </div>
+
+    <div class="proof-row">
+      <div class="proof rv"><div class="big"><span data-count="23" data-prefix="+" data-suffix="%">+0%</span></div><p>быстрее усваивают новый материал дети, которые используют сенсорные инструменты на уроке</p><span class="u">University of Southern California (USC)</span></div>
+      <div class="proof rv"><div class="big"><span data-count="56" data-prefix="+" data-suffix="%">+0%</span></div><p>рост вовлечённости и интереса к учебному процессу</p><span class="u">Grand Valley State University (GVSU)</span></div>
+      <div class="proof rv"><div class="big"><span data-count="93" data-suffix="%">0%</span></div><p>случаев — снижение тревожности и эмоциональных срывов у детей</p><span class="u">University of Calgary</span></div>
+    </div>
+
+    <div class="uni-wall rv">
+      <div class="lbl">Применяют в исследованиях и практике</div>
+      <div class="uni-row">
+        <div class="uni"><img src="logos/usc.png" alt="University of Southern California" loading="lazy"></div>
+        <div class="uni"><img src="logos/cardiff.png" alt="Cardiff University" loading="lazy"></div>
+        <div class="uni"><img src="logos/duke.jpg" alt="Duke University" loading="lazy"></div>
+        <div class="uni"><img src="logos/zurich.png" alt="University of Zurich" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ МИРОВОЙ ОПЫТ (MapLibre flat map) ============ -->
+<section class="wxm" id="mirovoy-opyt" aria-labelledby="wxm-title">
+  <div class="wxm__wrap">
+    <p class="wxm__eyebrow">Мировой опыт</p>
+    <h2 id="wxm-title">Не догадки, а методика и мировой опыт</h2>
+    <p class="wxm__sub">Сенсорная регуляция работает по всему миру. Мы — первые в Казахстане.</p>
+    <div class="wxm__map" id="wxMapLibre" role="region" aria-label="Карта зон покрытия сенсорной регуляции"></div>
+    <ul class="wxm__legend" aria-label="Зоны покрытия">
+  <li data-zone="kz"><i style="background:#E91E8C"></i>Казахстан</li>
+  <li data-zone="us"><i style="background:#F97316"></i>США</li>
+  <li data-zone="eu"><i style="background:#6366F1"></i>Европа</li>
+  <li data-zone="ca"><i style="background:#3B82F6"></i>Канада</li>
+  <li data-zone="au"><i style="background:#10B981"></i>Австралия</li>
+</ul>
+    <div class="wxm__mobile" id="wxMobileCard" hidden>
+      <div id="wxMobileBody"></div>
+      <div class="wxm__chips" id="wxMobileChips"></div>
+    </div>
+    <p class="wxm__caption">Методике 50+ лет. Аэропорты, стадионы, полиция, библиотеки — а теперь и Казахстан.</p>
+  </div>
+</section>
+
+<!-- ============ ЭТАПЫ ============ -->
+<section class="road" id="etapy">
+  <div class="fx" aria-hidden="true">
+    <span class="orb orb--p" style="width:380px;height:380px;left:-180px;top:-140px;opacity:.28" data-plx="0.14"></span>
+    <span class="fx-ring" style="width:440px;height:440px;right:-180px;bottom:-160px;--d:70s;border-color:rgba(233,30,140,.14)"></span>
+    <i class="fx-bub" style="--x:82%;--d:13s;--s:26px;--c:rgba(177,90,248,.14)"></i>
+    <i class="fx-bub" style="--x:64%;--d:16s;--dl:4s;--s:20px;--c:rgba(255,137,81,.14)"></i>
+  </div>
+  <div class="wrap">
+    <div class="shead rv">
+      <span class="tag">Этапы реализации</span>
+      <h2>От пилота в Алматы — <span class="grad">до всего Казахстана</span></h2>
+      <p class="sub">Проект масштабируется в три этапа: сначала доказываем эффективность в школах и пожарной службе, затем переходим на устойчивую модель «1+1» и масштабируем на всю страну.</p>
+    </div>
+    <div class="road-grid">
+      <article class="rcard rv">
+        <div class="rnum">01</div>
+        <span class="rtag">Пилот · Алматы</span>
+        <h3>Доказательная база</h3>
+        <p>Боксы передаются школам и пожарной службе безвозмездно — собираем доказательства эффективности в реальных условиях.</p>
+        <ul class="rstats">
+          <li><b>25</b> школ Алматы</li>
+          <li><b>~24 800</b> учащихся</li>
+          <li><b>120</b> пожарных машин</li>
+        </ul>
+        <span class="rmodel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v8h14v-8"/><path d="M12 8v12"/><path d="M12 8c-2 0-4-1-4-3a2 2 0 014 0"/><path d="M12 8c2 0 4-1 4-3a2 2 0 00-4 0"/></svg>Боксы бесплатно</span>
+      </article>
+      <article class="rcard rv">
+        <div class="rnum">02</div>
+        <span class="rtag">Масштаб · Алматы</span>
+        <h3>Устойчивая модель</h3>
+        <p>Выход на коммерческую модель «1+1»: каждый проданный бокс финансирует один бесплатный для государственной школы.</p>
+        <ul class="rstats">
+          <li><b>360</b> школ города</li>
+          <li><b>357 222</b> школьника</li>
+          <li><b>400–500</b> бригад экстренных служб</li>
+        </ul>
+        <span class="rmodel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2l4 4-4 4"/><path d="M3 11v-1a4 4 0 014-4h14"/><path d="M7 22l-4-4 4-4"/><path d="M21 13v1a4 4 0 01-4 4H3"/></svg>Модель «1+1», как TOMS</span>
+      </article>
+      <article class="rcard rv">
+        <div class="rnum">03</div>
+        <span class="rtag">Вся страна · Центральная Азия</span>
+        <h3>Национальный охват</h3>
+        <p>Масштабирование на весь Казахстан и далее — в Кыргызстан, Узбекистан, Таджикистан и Туркменистан.</p>
+        <ul class="rstats">
+          <li><b>8 000+</b> школ страны</li>
+          <li><b>4,1 млн</b> школьников</li>
+          <li><b>237 тыс.</b> детей с ООП</li>
+        </ul>
+        <span class="rmodel"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.5 3.8 5.6 3.8 9S14.5 18.5 12 21c-2.5-2.5-3.8-5.6-3.8-9S9.5 5.5 12 3z"/></svg>Казахстан + ЦА</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+</main>
+
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <a class="brand" href="kit.html#top" aria-label="Sensory Kit">Sensory Kit</a>
+    <p>Готовый набор психоэмоциональной сенсорной поддержки для школ, экстренных служб и семей.</p>
+    <p class="small">Часть Sensory Regulation Systems · фонд «Альтернатива SM» · Алматы · <a href="index.html" style="color:inherit">SRS</a> · <a href="rooms/index.html" style="color:inherit">Rooms</a></p>
+  </div>
+</footer>
+
+<div class="mcta" id="mcta"><a class="btn btn-grad" href="zayavka.html">Заказать бокс</a></div>
+
+<script src="/rooms/vendor/three.min.js"></script>
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script src="world-map.js"></script>
+<script src="app-v2.js"></script>
+<script src="/site-nav.js" defer></script>
+</body>
+</html>
